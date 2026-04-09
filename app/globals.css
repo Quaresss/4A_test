@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+:root {
+  --page-bg: #232829;
+  --card-bg: #313637;
+  --border-muted: #484d4e;
+  --accent: #fdb056;
+  --sale: #fd5656;
+  --old-price: #919191;
+  --header-strip: #1d5b43;
+  --timer-gold: #fb0;
+  --guarantee: #81fe95;
+  --legal-muted: #9b9b9b;
+  --checkbox-label: #cdcdcd;
+  --surface-elevated: #2d3233;
+  --text-muted-on-dark: #dcdcdc;
+
+  --text-tariff-price: 34px;
+  --text-tariff-period: 18px;
+  --text-tariff-old: 16px;
+  --text-tariff-hit: 13px;
+  --text-tariff-desc: 14px;
+  --text-tariff-sale-pct: 16px;
+  --tariff-old-strike-offset: 12px;
+
+  --text-offer-alert: 12px;
+  --text-consent: 12px;
+  --text-primary-btn: 18px;
+  --text-legal-disclaimer: 10px;
+  --text-guarantee-title: 18px;
+  --text-guarantee-body: 14px;
+}
+
+@media (max-width: 320px) {
+  :root {
+    --text-tariff-period: 16px;
+    --text-tariff-price: 30px;
+    --text-tariff-old: 14px;
+    --text-tariff-sale-pct: 13px;
+    --tariff-old-strike-offset: 10px;
+    --text-guarantee-title: 16px;
+    --text-guarantee-body: 13px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --text-tariff-price: 50px;
+    --text-tariff-period: 26px;
+    --text-tariff-old: 24px;
+    --text-tariff-hit: 22px;
+    --text-tariff-desc: 16px;
+    --text-tariff-sale-pct: 22px;
+    --tariff-old-strike-offset: 15px;
+
+    --text-offer-alert: 16px;
+    --text-consent: 16px;
+    --text-primary-btn: 20px;
+    --text-legal-disclaimer: 14px;
+    --text-guarantee-title: 28px;
+    --text-guarantee-body: 24px;
+  }
+}
+
+@theme inline {
+  --color-page-bg: var(--page-bg);
+  --color-card-bg: var(--card-bg);
+  --color-border-muted: var(--border-muted);
+  --color-accent: var(--accent);
+  --color-sale: var(--sale);
+  --color-old-price: var(--old-price);
+  --color-header-strip: var(--header-strip);
+  --color-timer-gold: var(--timer-gold);
+  --color-guarantee: var(--guarantee);
+  --color-legal-muted: var(--legal-muted);
+  --color-checkbox-label: var(--checkbox-label);
+  --color-surface-elevated: var(--surface-elevated);
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-sale-badge: var(--font-gilroy-medium), ui-sans-serif, system-ui,
+    sans-serif;
+}
+
+@keyframes timer-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.animate-timer-blink {
+  animation: timer-blink 0.9s ease-in-out infinite;
+}
+
+@keyframes buy-cta-breathe {
+  0%,
+  100% {
+    transform: scale(1) translateZ(0);
+    box-shadow:
+      0 2px 16px -6px rgb(253 176 86 / 0.38),
+      0 0 0 0 rgb(253 176 86 / 0),
+      inset 0 1px 0 rgb(255 255 255 / 0.22);
+    filter: brightness(1) saturate(1);
+  }
+  33% {
+    transform: scale(1.022) translateZ(0);
+    box-shadow:
+      0 10px 32px -8px rgb(253 176 86 / 0.48),
+      0 0 0 5px rgb(253 176 86 / 0.14),
+      inset 0 1px 0 rgb(255 255 255 / 0.28);
+    filter: brightness(1.05) saturate(1.04);
+  }
+  66% {
+    transform: scale(1.01) translateZ(0);
+    box-shadow:
+      0 6px 26px -8px rgb(253 176 86 / 0.36),
+      0 0 0 10px rgb(253 176 86 / 0),
+      inset 0 1px 0 rgb(255 255 255 / 0.2);
+    filter: brightness(1.025) saturate(1.02);
+  }
+}
+
+.animate-buy-blink {
+  -webkit-tap-highlight-color: transparent;
+  backface-visibility: hidden;
+  animation: buy-cta-breathe 3.4s cubic-bezier(0.45, 0.05, 0.55, 0.98) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-buy-blink {
+    animation: none;
+    box-shadow: 0 4px 14px -6px rgb(253 176 86 / 0.25);
+  }
+}
+
+@keyframes price-reveal {
+  0% {
+    opacity: 0.85;
+    transform: translateY(6px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-price-reveal {
+  animation: price-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+body {
+  background: var(--page-bg);
+  color: #fff;
+}
