@@ -1,25 +1,29 @@
 "use client";
 
 import type { ButtonHTMLAttributes } from "react";
+import { cn } from "@/shared/lib/cn";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary";
 };
 
 export function Button({
-  className = "",
+  className,
   variant = "primary",
   type = "button",
   children,
   ...rest
 }: ButtonProps) {
-  const base =
-    variant === "primary"
-      ? "rounded-[20px] bg-accent px-[60px] py-5 text-center font-['Montserrat',sans-serif] text-[length:var(--text-primary-btn)] font-bold leading-[1.3] text-[#191e1f] disabled:pointer-events-none disabled:opacity-50"
-      : "";
-
   return (
-    <button type={type} className={`${base} ${className}`.trim()} {...rest}>
+    <button
+      type={type}
+      className={cn(
+        variant === "primary" &&
+          "rounded-[20px] bg-accent px-[60px] py-5 text-center font-sans text-[length:var(--text-primary-btn)] font-bold leading-[1.3] text-on-accent disabled:pointer-events-none disabled:opacity-50",
+        className,
+      )}
+      {...rest}
+    >
       {children}
     </button>
   );

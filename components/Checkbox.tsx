@@ -24,7 +24,12 @@ export function Checkbox({
 
   return (
     <div
-      className={`flex min-w-0 items-start gap-[12px] ${error ? "rounded-xl ring-2 ring-sale ring-offset-2 ring-offset-page-bg" : ""} ${className}`.trim()}
+      className={cn(
+        "flex min-w-0 items-start gap-[12px]",
+        error &&
+          "rounded-xl ring-2 ring-sale ring-offset-2 ring-offset-page-bg",
+        className,
+      )}
     >
       <div className="relative shrink-0">
         <input
@@ -37,7 +42,7 @@ export function Checkbox({
         <label
           htmlFor={id}
           className={cn(
-            "flex size-[30px] cursor-pointer items-center justify-center rounded border-2 bg-card-bg transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-accent peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-page-bg min-[1440px]:size-[32px]",
+            "flex size-[30px] cursor-pointer items-center justify-center rounded border-2 bg-card-bg transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-accent peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-page-bg wide:size-[32px]",
             error ? "border-sale" : "border-border-muted",
           )}
         >
@@ -62,7 +67,7 @@ export function Checkbox({
       </div>
       <label
         htmlFor={id}
-        className="min-w-0 max-w-[605px] cursor-pointer font-['Montserrat',sans-serif] text-[length:var(--text-consent)] leading-[1.1] text-checkbox-label"
+        className="min-w-0 max-w-[605px] cursor-pointer font-sans text-[length:var(--text-consent)] leading-[1.1] text-checkbox-label"
       >
         {label}
       </label>

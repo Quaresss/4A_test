@@ -63,6 +63,8 @@
 }
 
 @theme inline {
+  --breakpoint-wide: 90rem;
+
   --color-page-bg: var(--page-bg);
   --color-card-bg: var(--card-bg);
   --color-border-muted: var(--border-muted);
@@ -71,6 +73,9 @@
   --color-old-price: var(--old-price);
   --color-header-strip: var(--header-strip);
   --color-timer-gold: var(--timer-gold);
+  --color-timer-urgent: #ff3b3b;
+  --color-on-accent: #191e1f;
+  --color-muted-foreground: var(--text-muted-on-dark);
   --color-guarantee: var(--guarantee);
   --color-legal-muted: var(--legal-muted);
   --color-checkbox-label: var(--checkbox-label);
@@ -148,9 +153,4 @@
 
 .animate-price-reveal {
   animation: price-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-body {
-  background: var(--page-bg);
-  color: #fff;
 }

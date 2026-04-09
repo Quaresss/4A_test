@@ -16,18 +16,18 @@ export type TariffCardProps = {
 };
 
 const articleMobileLikeFeatured =
-  "max-[1439px]:w-full max-[1439px]:min-w-0 max-[1439px]:h-[131px] max-[1439px]:max-w-full max-[1439px]:overflow-hidden max-[1439px]:py-[2px] max-[1439px]:px-[30px] max-[1439px]:min-h-0";
+  "max-wide:w-full max-wide:min-w-0 max-wide:h-[131px] max-wide:max-w-full max-wide:overflow-hidden max-wide:py-[2px] max-wide:px-[30px] max-wide:min-h-0";
 
 const featuredArticleClass = cn(
   "flex w-full flex-col rounded-[20px]",
   articleMobileLikeFeatured,
-  "px-[18px] pb-[30px] pt-[34px] max-[321px]:px-0 max-[321px]:py-0 max-[321px]:pt-[20px] max-[321px]:pb-[20px] max-[321px]:pl-[20px] max-[321px]:pr-[11px] min-[1440px]:h-[190px] min-[1440px]:w-full min-[1440px]:max-w-[748px] min-[1440px]:min-h-0 min-[1440px]:shrink-0 min-[1440px]:items-end min-[1440px]:justify-center min-[1440px]:overflow-visible min-[1440px]:rounded-[34px] min-[1440px]:px-0 min-[1440px]:pl-[122px] min-[1440px]:pr-[80px] min-[1440px]:pb-[30px] min-[1440px]:pt-[34px]",
+  "px-[18px] pb-[30px] pt-[34px] max-[321px]:px-0 max-[321px]:py-0 max-[321px]:pt-[20px] max-[321px]:pb-[20px] max-[321px]:pl-[20px] max-[321px]:pr-[11px] wide:h-[190px] wide:w-full wide:max-w-[748px] wide:min-h-0 wide:shrink-0 wide:items-end wide:justify-center wide:overflow-visible wide:rounded-[34px] wide:px-0 wide:pl-[122px] wide:pr-[80px] wide:pb-[30px] wide:pt-[34px]",
 );
 
 const compactArticleClass = cn(
   "flex w-full max-w-full flex-col rounded-[20px]",
   articleMobileLikeFeatured,
-  "px-[18px] pb-[30px] pt-[34px] max-[321px]:px-0 max-[321px]:py-0 max-[321px]:pt-[20px] max-[321px]:pb-[20px] max-[321px]:pl-[20px] max-[321px]:pr-[11px] min-[1440px]:items-center min-[1440px]:px-[18px] min-[1440px]:pb-[23px] min-[1440px]:pt-[70px] min-[1440px]:h-[335px] min-[1440px]:w-[240px] min-[1440px]:max-w-none min-[1440px]:min-h-0 min-[1440px]:overflow-visible min-[1440px]:rounded-[40px]",
+  "px-[18px] pb-[30px] pt-[34px] max-[321px]:px-0 max-[321px]:py-0 max-[321px]:pt-[20px] max-[321px]:pb-[20px] max-[321px]:pl-[20px] max-[321px]:pr-[11px] wide:items-center wide:px-[18px] wide:pb-[23px] wide:pt-[70px] wide:h-[335px] wide:w-[240px] wide:max-w-none wide:min-h-0 wide:overflow-visible wide:rounded-[40px]",
 );
 
 function OldPrice({
@@ -39,7 +39,7 @@ function OldPrice({
 }) {
   return (
     <span className="relative inline-grid justify-items-end leading-[0]">
-      <span className="whitespace-nowrap font-['Montserrat',sans-serif] text-[length:var(--text-tariff-old)] font-normal leading-[1.2] text-old-price">
+      <span className="whitespace-nowrap font-sans text-[length:var(--text-tariff-old)] font-normal leading-[1.2] text-old-price">
         {formatAmount(amount)}
       </span>
       <span
@@ -67,7 +67,7 @@ function PriceColumn({
 }) {
   const alignCls =
     align === "center"
-      ? "items-start text-left min-[1440px]:items-center min-[1440px]:text-center"
+      ? "items-start text-left wide:items-center wide:text-center"
       : align === "end"
         ? "items-end text-right"
         : "items-start text-left";
@@ -76,14 +76,14 @@ function PriceColumn({
     align === "end"
       ? "right-0 left-auto"
       : align === "center"
-        ? "left-0 w-max max-w-full min-[1440px]:right-0 min-[1440px]:w-full"
+        ? "left-0 w-max max-w-full wide:right-0 wide:w-full"
         : "left-0";
 
   return (
     <div
       className={cn(
         "relative flex w-full max-w-full flex-col justify-start",
-        "max-[1439px]:w-max max-[1439px]:max-w-full",
+        "max-wide:w-max max-wide:max-w-full",
         alignCls,
       )}
     >
@@ -96,7 +96,7 @@ function PriceColumn({
       >
         <p
           className={cn(
-            "whitespace-nowrap font-['Montserrat',sans-serif] text-[length:var(--text-tariff-price)] font-semibold max-[1439px]:leading-[1.05] min-[1440px]:leading-none",
+            "whitespace-nowrap font-sans text-[length:var(--text-tariff-price)] font-semibold max-wide:leading-[1.05] wide:leading-none",
             accentPrice ? "text-accent" : "text-white",
           )}
         >
@@ -106,7 +106,7 @@ function PriceColumn({
           <span
             className={
               align === "center"
-                ? "max-[1439px]:self-start min-[1440px]:self-end"
+                ? "max-wide:self-start wide:self-end"
                 : undefined
             }
           >
@@ -122,13 +122,13 @@ function PriceColumn({
           align === "end"
             ? "w-max max-w-full"
             : align === "center"
-              ? "w-max max-w-full min-[1440px]:w-full"
+              ? "w-max max-w-full wide:w-full"
               : "w-full",
           timerExpired ? "opacity-100" : "pointer-events-none opacity-0",
           timerExpired && priceRevealPulse ? "animate-price-reveal" : "",
         )}
       >
-        <p className="whitespace-nowrap font-['Montserrat',sans-serif] text-[length:var(--text-tariff-price)] font-semibold max-[1439px]:leading-[1.05] min-[1440px]:leading-none text-white">
+        <p className="whitespace-nowrap font-sans text-[length:var(--text-tariff-price)] font-semibold max-wide:leading-[1.05] wide:leading-none text-white">
           {formatAmount(tariff.full_price)}
         </p>
       </div>
@@ -155,10 +155,10 @@ function FeaturedBody({
         : "max-[321px]:gap-[48px]";
   const priceToDescGap321to1439 =
     priceDigitLen >= 5
-      ? "min-[321px]:max-[1439px]:gap-[30px]"
+      ? "min-[321px]:max-wide:gap-[30px]"
       : priceDigitLen === 4
-        ? "min-[321px]:max-[1439px]:gap-[50px]"
-        : "min-[321px]:max-[1439px]:gap-[70px]";
+        ? "min-[321px]:max-wide:gap-[50px]"
+        : "min-[321px]:max-wide:gap-[70px]";
   const mobilePriceToDescGap = cn(
     priceToDescGapMax320,
     priceToDescGap321to1439,
@@ -167,13 +167,13 @@ function FeaturedBody({
   return (
     <div
       className={cn(
-        "flex h-full min-h-0 w-full min-w-0 flex-1 flex-col gap-10 max-[1439px]:flex-row max-[1439px]:items-center max-[1439px]:overflow-visible",
+        "flex h-full min-h-0 w-full min-w-0 flex-1 flex-col gap-10 max-wide:flex-row max-wide:items-center max-wide:overflow-visible",
         mobilePriceToDescGap,
-        "min-[1440px]:w-auto min-[1440px]:max-w-full min-[1440px]:flex-row min-[1440px]:items-center min-[1440px]:justify-start min-[1440px]:gap-[50px] min-[1440px]:overflow-visible",
+        "wide:w-auto wide:max-w-full wide:flex-row wide:items-center wide:justify-start wide:gap-[50px] wide:overflow-visible",
       )}
     >
-      <div className="flex flex-col gap-4 px-[18px] max-[1439px]:w-auto max-[1439px]:max-w-full max-[1439px]:shrink-0 max-[1439px]:items-start max-[321px]:gap-3 min-[321px]:max-[374px]:gap-1 min-[375px]:max-[1439px]:gap-4 max-[1439px]:px-0 max-[1439px]:pl-1 min-[1440px]:min-w-0 min-[1440px]:items-center min-[1440px]:gap-4 min-[1440px]:px-0">
-        <p className="text-center text-[length:var(--text-tariff-period)] font-medium leading-[1.2] text-white max-[1439px]:text-start">
+      <div className="flex flex-col gap-4 px-[18px] max-wide:w-auto max-wide:max-w-full max-wide:shrink-0 max-wide:items-start max-[321px]:gap-3 min-[321px]:max-[374px]:gap-1 min-[375px]:max-wide:gap-4 max-wide:px-0 max-wide:pl-1 wide:min-w-0 wide:items-center wide:gap-4 wide:px-0">
+        <p className="text-center text-[length:var(--text-tariff-period)] font-medium leading-[1.2] text-white max-wide:text-start">
           {tariff.period}
         </p>
         <PriceColumn
@@ -184,8 +184,8 @@ function FeaturedBody({
           align="center"
         />
       </div>
-      <div className="flex min-h-0 min-w-0 flex-1 justify-center overflow-hidden py-2.5 max-[1439px]:py-0 min-[1440px]:w-[328px] min-[1440px]:shrink-0 min-[1440px]:items-start min-[1440px]:justify-center min-[1440px]:overflow-visible min-[1440px]:py-[10px]">
-        <p className="w-full max-w-[328px] text-center text-[length:var(--text-tariff-desc)] font-normal leading-[1.3] text-white max-[1439px]:line-clamp-2 max-[1439px]:text-start min-[1440px]:text-left min-[1440px]:leading-[1.3]">
+      <div className="flex min-h-0 min-w-0 flex-1 justify-center overflow-hidden py-2.5 max-wide:py-0 wide:w-[328px] wide:shrink-0 wide:items-start wide:justify-center wide:overflow-visible wide:py-[10px]">
+        <p className="w-full max-w-[328px] text-center text-[length:var(--text-tariff-desc)] font-normal leading-[1.3] text-white max-wide:line-clamp-2 max-wide:text-start wide:text-left wide:leading-[1.3]">
           {tariff.text}
         </p>
       </div>
@@ -203,12 +203,12 @@ function CompactBody({
   priceRevealPulse?: boolean;
 }) {
   return (
-    <div className="flex h-full min-h-0 w-full flex-col items-center max-[1439px]:flex-row max-[1439px]:items-center max-[1439px]:gap-[50px] max-[1439px]:overflow-hidden min-[1440px]:flex-col min-[1440px]:gap-10 min-[1440px]:overflow-visible">
-      <div className="flex w-full max-[1439px]:min-w-0 max-[1439px]:flex-1 flex-col items-center gap-[30px] px-[18px] max-[1439px]:flex-row max-[1439px]:items-center max-[1439px]:gap-2 max-[1439px]:px-0 min-[1440px]:flex-col min-[1440px]:gap-[30px] min-[1440px]:px-[18px]">
-        <p className="text-center text-[length:var(--text-tariff-period)] font-medium leading-[1.2] text-white max-[1439px]:shrink-0 max-[1439px]:text-start">
+    <div className="flex h-full min-h-0 w-full flex-col items-center max-wide:flex-row max-wide:items-center max-wide:gap-[50px] max-wide:overflow-hidden wide:flex-col wide:gap-10 wide:overflow-visible">
+      <div className="flex w-full max-wide:min-w-0 max-wide:flex-1 flex-col items-center gap-[30px] px-[18px] max-wide:flex-row max-wide:items-center max-wide:gap-2 max-wide:px-0 wide:flex-col wide:gap-[30px] wide:px-[18px]">
+        <p className="text-center text-[length:var(--text-tariff-period)] font-medium leading-[1.2] text-white max-wide:shrink-0 max-wide:text-start">
           {tariff.period}
         </p>
-        <div className="flex w-full max-[1439px]:w-auto max-[1439px]:shrink-0 flex-col items-center">
+        <div className="flex w-full max-wide:w-auto max-wide:shrink-0 flex-col items-center">
           <PriceColumn
             tariff={tariff}
             timerExpired={timerExpired}
@@ -218,8 +218,8 @@ function CompactBody({
           />
         </div>
       </div>
-      <div className="flex w-full max-w-[204px] items-start justify-start self-start max-[1439px]:min-h-0 max-[1439px]:min-w-0 max-[1439px]:max-w-none max-[1439px]:flex-1">
-        <p className="w-full text-start text-[length:var(--text-tariff-desc)] font-normal leading-[1.3] text-white max-[1439px]:line-clamp-2 min-[1440px]:line-clamp-none">
+      <div className="flex w-full max-w-[204px] items-start justify-start self-start max-wide:min-h-0 max-wide:min-w-0 max-wide:max-w-none max-wide:flex-1">
+        <p className="w-full text-start text-[length:var(--text-tariff-desc)] font-normal leading-[1.3] text-white max-wide:line-clamp-2 wide:line-clamp-none">
           {tariff.text}
         </p>
       </div>
@@ -239,7 +239,7 @@ export function TariffCard({
 }: TariffCardProps) {
   const pct = discountPercent(tariff.price, tariff.full_price);
   const isFeatured = variant === "featured";
-  const saleTopCompact = compactSaleTopClass ?? "min-[1440px]:-top-0.5";
+  const saleTopCompact = compactSaleTopClass ?? "wide:-top-0.5";
   const showSaleBadge = !timerExpired && pct > 0;
 
   return (
@@ -254,7 +254,7 @@ export function TariffCard({
         }
       }}
       className={cn(
-        "relative cursor-pointer border-2 border-solid bg-card-bg font-['Montserrat',sans-serif] outline-none transition-[box-shadow,transform] duration-200 hover:brightness-[1.02] focus-visible:ring-2 focus-visible:ring-accent",
+        "relative cursor-pointer border-2 border-solid bg-card-bg font-sans outline-none transition-[box-shadow,transform] duration-200 hover:brightness-[1.02] focus-visible:ring-2 focus-visible:ring-accent",
         selected ? "border-accent" : "border-border-muted",
         isFeatured ? featuredArticleClass : compactArticleClass,
         className,
@@ -264,26 +264,26 @@ export function TariffCard({
         <div
           className={cn(
             "absolute flex items-center justify-center overflow-hidden border-0 bg-sale outline-none ring-0",
-            "max-[1439px]:h-[27px] max-[1439px]:w-[48px] max-[321px]:h-[23px] max-[321px]:w-[42px] max-[1439px]:rounded-none max-[1439px]:rounded-b-[8px] max-[1439px]:p-0",
-            "min-[1440px]:h-auto min-[1440px]:w-auto min-[1440px]:rounded-bl-lg min-[1440px]:rounded-br-lg min-[1440px]:px-2 min-[1440px]:py-[5px]",
-            "top-0 max-[1439px]:left-auto",
+            "max-wide:h-[27px] max-wide:w-[48px] max-[321px]:h-[23px] max-[321px]:w-[42px] max-wide:rounded-none max-wide:rounded-b-[8px] max-wide:p-0",
+            "wide:h-auto wide:w-auto wide:rounded-bl-lg wide:rounded-br-lg wide:px-2 wide:py-[5px]",
+            "top-0 max-wide:left-auto",
             isFeatured
-              ? "max-[1439px]:right-[62px] max-[321px]:right-[50px] min-[1440px]:left-[50px] min-[1440px]:right-auto"
+              ? "max-wide:right-[62px] max-[321px]:right-[50px] wide:left-[50px] wide:right-auto"
               : cn(
-                  "max-[1439px]:right-[36px] max-[321px]:right-[28px] min-[1440px]:left-[49px] min-[1440px]:right-auto",
+                  "max-wide:right-[36px] max-[321px]:right-[28px] wide:left-[49px] wide:right-auto",
                   saleTopCompact,
                 ),
           )}
           aria-hidden
         >
-          <span className="font-[family-name:var(--font-sale-badge)] font-medium text-white max-[1439px]:text-[length:var(--text-tariff-sale-pct)] max-[1439px]:leading-none min-[1440px]:text-[length:var(--text-tariff-sale-pct)] min-[1440px]:leading-[1.3]">
+          <span className="font-[family-name:var(--font-sale-badge)] font-medium text-white max-wide:text-[length:var(--text-tariff-sale-pct)] max-wide:leading-none wide:text-[length:var(--text-tariff-sale-pct)] wide:leading-[1.3]">
             -{pct}%
           </span>
         </div>
       ) : null}
 
       {tariff.is_best ? (
-        <p className="absolute max-[1439px]:right-[14px] max-[1439px]:top-[6px] min-[1440px]:left-[682px] min-[1440px]:right-auto min-[1440px]:top-[10px] text-[length:var(--text-tariff-hit)] font-medium leading-[1.3] tracking-[0.66px] text-accent">
+        <p className="absolute max-wide:right-[14px] max-wide:top-[6px] wide:left-[682px] wide:right-auto wide:top-[10px] text-[length:var(--text-tariff-hit)] font-medium leading-[1.3] tracking-[0.66px] text-accent">
           хит!
         </p>
       ) : null}
@@ -296,14 +296,14 @@ export function TariffCard({
         />
       ) : (
         <>
-          <div className="flex h-full min-h-0 w-full min-w-0 flex-1 flex-col min-[1440px]:hidden">
+          <div className="flex h-full min-h-0 w-full min-w-0 flex-1 flex-col wide:hidden">
             <FeaturedBody
               tariff={tariff}
               timerExpired={timerExpired}
               priceRevealPulse={priceRevealPulse}
             />
           </div>
-          <div className="hidden min-h-0 w-full min-[1440px]:flex min-[1440px]:h-full min-[1440px]:flex-1 min-[1440px]:flex-col">
+          <div className="hidden min-h-0 w-full wide:flex wide:h-full wide:flex-1 wide:flex-col">
             <CompactBody
               tariff={tariff}
               timerExpired={timerExpired}

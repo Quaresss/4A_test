@@ -38,7 +38,7 @@ export function TariffList({
   const consentId = "offer-consent";
 
   return (
-    <div className="mx-auto w-full min-w-0 max-w-[748px] min-[1440px]:mx-0 min-[1440px]:w-[748px] min-[1440px]:max-w-none min-[1440px]:shrink-0">
+    <div className="mx-auto w-full min-w-0 max-w-[748px] wide:mx-0 wide:w-[748px] wide:max-w-none wide:shrink-0">
       {featured ? (
         <TariffCard
           tariff={featured}
@@ -51,7 +51,7 @@ export function TariffList({
           priceRevealPulse={priceRevealPulse}
           variant="featured"
           className={cn(
-            "min-[1440px]:mb-[14px]",
+            "wide:mb-[14px]",
             compact.length > 0
               ? "mb-2 max-[321px]:mb-1.5"
               : "mb-[12px] max-[321px]:mb-[10px]",
@@ -61,17 +61,17 @@ export function TariffList({
 
       <div
         className={cn(
-          "grid w-full grid-cols-1 gap-2 max-[321px]:gap-[6px] min-[322px]:max-[1439px]:gap-2",
+          "grid w-full grid-cols-1 gap-2 max-[321px]:gap-[6px] min-[322px]:max-wide:gap-2",
           compact.length > 0
             ? "mb-[12px] max-[321px]:mb-[10px]"
-            : "max-[1439px]:mb-0",
-          "min-[1440px]:mb-5 min-[1440px]:w-[748px] min-[1440px]:grid-cols-3 min-[1440px]:gap-[14px]",
+            : "max-wide:mb-0",
+          "wide:mb-5 wide:w-[748px] wide:grid-cols-3 wide:gap-[14px]",
         )}
       >
         {compact.map((t, index) => (
           <div
             key={tariffReactKey(t)}
-            className="w-full min-w-0 min-[1440px]:flex-none min-[1440px]:w-auto"
+            className="w-full min-w-0 wide:flex-none wide:w-auto"
           >
             <TariffCard
               tariff={t}
@@ -83,14 +83,14 @@ export function TariffList({
               timerExpired={timerExpired}
               variant="compact"
               compactSaleTopClass={
-                index === 0 ? "min-[1440px]:-top-[3px]" : "min-[1440px]:-top-0.5"
+                index === 0 ? "wide:-top-[3px]" : "wide:-top-0.5"
               }
             />
           </div>
         ))}
       </div>
 
-      <div className="mb-6 flex w-full max-w-[600px] gap-[8px] rounded-[20px] bg-surface-elevated px-5 py-[18px] max-[321px]:mb-4 min-[1440px]:mb-[30px] min-[1440px]:max-w-none min-[1440px]:px-[20px] min-[1440px]:py-[18px]">
+      <div className="mb-6 flex w-full max-w-[600px] gap-[8px] rounded-[20px] bg-surface-elevated px-5 py-[18px] max-[321px]:mb-4 wide:mb-[30px] wide:max-w-none wide:px-[20px] wide:py-[18px]">
         <div className="relative h-[24px] w-[22px] shrink-0 overflow-hidden">
           <Image
             src={SITE_ASSETS.alertIcon}
@@ -101,7 +101,7 @@ export function TariffList({
             unoptimized
           />
         </div>
-        <p className="max-w-[427px] font-['Montserrat',sans-serif] text-[length:var(--text-offer-alert)] font-normal leading-[1.3] text-white">
+        <p className="max-w-[427px] font-sans text-[length:var(--text-offer-alert)] font-normal leading-[1.3] text-white">
           Следуя плану на 3 месяца и более, люди получают в&nbsp;2 раза лучший
           результат, чем за 1 месяц
         </p>
@@ -115,7 +115,7 @@ export function TariffList({
           setConsent(e.target.checked);
           if (e.target.checked) setConsentError(false);
         }}
-        className="mb-[20px] max-w-full max-[321px]:mb-4 min-[1440px]:mb-4"
+        className="mb-[20px] max-w-full max-[321px]:mb-4 wide:mb-4"
         label={
           <>
             <span className="leading-[1.1]">Я согласен с </span>
@@ -138,7 +138,7 @@ export function TariffList({
 
       <Button
         type="button"
-        className="animate-buy-blink mb-[20px] w-full max-[321px]:mb-[10px] min-[1440px]:mb-[14px] min-[1440px]:w-[352px]"
+        className="animate-buy-blink mb-[20px] w-full max-[321px]:mb-[10px] wide:mb-[14px] wide:w-[352px]"
         onClick={() => {
           if (!consent) {
             setConsentError(true);
@@ -150,7 +150,7 @@ export function TariffList({
         Купить
       </Button>
 
-      <p className="mb-[25px] max-w-[748px] font-['Montserrat',sans-serif] text-[length:var(--text-legal-disclaimer)] font-normal leading-[1.2] text-legal-muted max-[321px]:mb-[22px] min-[1440px]:mb-0 min-[1440px]:w-[748px]">
+      <p className="mb-[25px] max-w-[748px] font-sans text-[length:var(--text-legal-disclaimer)] font-normal leading-[1.2] text-legal-muted max-[321px]:mb-[22px] wide:mb-0 wide:w-[748px]">
         Нажимая кнопку «Купить», Пользователь соглашается на разовое списание
         денежных средств для получения пожизненного доступа к приложению.
         Пользователь соглашается, что данные кредитной/дебетовой карты будут

@@ -39,7 +39,9 @@ export default function RootLayout({
       lang="ru"
       className={`${montserrat.variable} ${raleway.variable} ${gilroyMedium.variable} h-full antialiased`}
     >
-      <body className="min-h-full font-sans">{children}</body>
+      <body className="min-h-full bg-page-bg font-sans text-white">
+        {children}
+      </body>
     </html>
   );
 }

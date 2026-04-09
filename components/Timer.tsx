@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import { formatTimerParts } from "@/shared/lib/money";
 import { SITE_ASSETS } from "@/shared/site-assets";
+import { cn } from "@/shared/lib/cn";
 
 export type TimerProps = {
   secondsLeft: number;
@@ -11,15 +12,15 @@ export type TimerProps = {
   className?: string;
 };
 
-export function Timer({ secondsLeft, urgent, className = "" }: TimerProps) {
+export function Timer({ secondsLeft, urgent, className }: TimerProps) {
   const { m, s } = formatTimerParts(secondsLeft);
   const expired = secondsLeft <= 0;
 
   const digitClass = expired
     ? "text-white"
     : urgent
-      ? "text-[#ff3b3b] animate-timer-blink"
-      : "text-[#fb0]";
+      ? "text-timer-urgent animate-timer-blink"
+      : "text-timer-gold";
 
   const starFilterStyle: CSSProperties | undefined = expired
     ? { filter: "brightness(0) invert(1)" }
@@ -32,7 +33,10 @@ export function Timer({ secondsLeft, urgent, className = "" }: TimerProps) {
 
   return (
     <div
-      className={`flex items-center justify-center gap-2 whitespace-nowrap min-[1440px]:gap-2 ${className}`}
+      className={cn(
+        "flex items-center justify-center gap-2 whitespace-nowrap wide:gap-2",
+        className,
+      )}
       role="timer"
       aria-live="polite"
       aria-label={
@@ -51,7 +55,10 @@ export function Timer({ secondsLeft, urgent, className = "" }: TimerProps) {
         unoptimized
       />
       <div
-        className={`flex items-center gap-1.5 font-[family-name:var(--font-raleway)] text-[clamp(1.75rem,5vw,2.5rem)] font-bold uppercase leading-none max-[321px]:text-[32px] min-[1440px]:gap-[6px] min-[1440px]:text-[40px] ${digitClass}`}
+        className={cn(
+          "flex items-center gap-1.5 font-[family-name:var(--font-raleway)] text-[clamp(1.75rem,5vw,2.5rem)] font-bold uppercase leading-none max-[321px]:text-[32px] wide:gap-[6px] wide:text-[40px]",
+          digitClass,
+        )}
         style={{ fontFeatureSettings: "'lnum' 1, 'pnum' 1" }}
       >
         <span className="leading-[1.1]">{m}</span>
